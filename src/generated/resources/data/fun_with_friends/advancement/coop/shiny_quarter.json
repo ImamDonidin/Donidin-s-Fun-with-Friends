@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "give_item": {
+      "trigger": "fun_with_friends:shiny_quarter"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.shiny_quarter.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:gold_nugget"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.shiny_quarter.title"
+    }
+  },
+  "requirements": [
+    [
+      "give_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

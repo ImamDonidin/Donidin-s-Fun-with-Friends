@@ -1,0 +1,51 @@
+{
+  "mod.fun_with_friends.name": "Веселье с друзьями",
+  "chat.fun_with_friends.typing": "%s печатает...",
+  "coop.fun_with_friends.pulled_by": "%s вытащил(а) вас!",
+  "coop.fun_with_friends.pulled_other": "Вы вытащили %s!",
+  "coop.fun_with_friends.item_sent": "Отправлено: %s → %s",
+  "coop.fun_with_friends.item_received": "Получено: %s от %s",
+  "coop.fun_with_friends.inventory_full": "Инвентарь %s заполнен!",
+  "coop.fun_with_friends.health_given": "Вы поделились здоровьем с %s!",
+  "coop.fun_with_friends.health_received": "%s поделился(ась) с вами здоровьем!",
+  "coop.fun_with_friends.too_low_health": "Вы слишком слабы, чтобы делиться здоровьем!",
+  "coop.fun_with_friends.target_full_health": "У %s уже полное здоровье!",
+
+  "advancements.fun_with_friends.root.title": "Веселье с друзьями",
+  "advancements.fun_with_friends.root.description": "Кооперативные приключения начинаются!",
+
+  "advancements.fun_with_friends.you_my_friend_now.title": "Теперь ты мой друг",
+  "advancements.fun_with_friends.you_my_friend_now.description": "Зайдите в мир вместе с другом",
+
+  "advancements.fun_with_friends.war_and_peace.title": "Война и мир",
+  "advancements.fun_with_friends.war_and_peace.description": "Печатайте сообщение в чате слишком долго",
+
+  "advancements.fun_with_friends.medic.title": "Медик!",
+  "advancements.fun_with_friends.medic.description": "Поделитесь своим здоровьем с товарищем",
+
+  "advancements.fun_with_friends.boo.title": "Фу!",
+  "advancements.fun_with_friends.boo.description": "Бросьте ядовитую картошку прямо в своего друга",
+
+  "advancements.fun_with_friends.shiny_quarter.title": "Блестящий четвертак!",
+  "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет прямо своему другу",
+
+  "command.fun_with_friends.nickcolor.unknown": "§cНеизвестный цвет ника!",
+  "command.fun_with_friends.nickcolor.locked": "§cВы ещё не разблокировали необходимое достижение для этого цвета!",
+  "command.fun_with_friends.nickcolor.success": "Цвет ника успешно изменён на %s!",
+  "command.fun_with_friends.nickcolor.reset": "Цвет ника сброшен.",
+  "message.fun_with_friends.nickcolor.unlocked": "Вы разблокировали новый цвет ника: %s! Используйте §a/nickcolor §fчтобы применить.",
+
+  "color.fun_with_friends.emerald": "Изумрудный",
+  "color.fun_with_friends.purple": "Фиолетовый",
+  "color.fun_with_friends.netherite_blue": "Незеритовый синий",
+  "color.fun_with_friends.aquamarine": "Аквамариновый",
+  "color.fun_with_friends.pebble_gray": "Галечный серый",
+  "color.fun_with_friends.signal_orange": "Сигнальный оранжевый",
+  "color.fun_with_friends.amethyst": "Аметистовый",
+  "color.fun_with_friends.crimson": "Багровый",
+  "color.fun_with_friends.sculk_teal": "Скалковый бирюзовый",
+  "color.fun_with_friends.golden": "Золотой",
+  "color.fun_with_friends.cherry_pink": "Сакуровый розовый",
+
+  "entity.fun_with_friends.poison_potato": "Брошенная ядовитая картошка"
+}

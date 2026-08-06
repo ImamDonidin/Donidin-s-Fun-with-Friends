@@ -1,0 +1,52 @@
+{
+  "mod.fun_with_friends.name": "Diversión con Amigos",
+  "chat.fun_with_friends.typing": "¡%s está escribiendo...",
+  "coop.fun_with_friends.pulled_by": "¡%s te ha levantado!",
+  "coop.fun_with_friends.pulled_other": "¡Has levantado a %s!",
+  "coop.fun_with_friends.item_sent": "Enviado: %s → %s",
+  "coop.fun_with_friends.item_received": "Recibido: %s de %s",
+  "coop.fun_with_friends.inventory_full": "¡El inventario de %s está lleno!",
+  "coop.fun_with_friends.health_given": "¡Has compartido tu salud con %s!",
+  "coop.fun_with_friends.health_received": "¡%s ha compartido su salud contigo!",
+  "coop.fun_with_friends.too_low_health": "¡Estás demasiado débil para compartir salud!",
+  "coop.fun_with_friends.target_full_health": "¡%s ya tiene la salud al máximo!",
+
+  "advancements.fun_with_friends.root.title": "Diversión con Amigos",
+  "advancements.fun_with_friends.root.description": "¡Comienzan las aventuras cooperativas!",
+
+  "advancements.fun_with_friends.you_my_friend_now.title": "Ahora Eres Mi Amigo",
+  "advancements.fun_with_friends.you_my_friend_now.description": "Únete al mundo junto a un amigo",
+
+  "advancements.fun_with_friends.war_and_peace.title": "Guerra y Paz",
+  "advancements.fun_with_friends.war_and_peace.description": "Escribe un mensaje en el chat durante demasiado tiempo",
+
+  "advancements.fun_with_friends.medic.title": "¡Médico!",
+  "advancements.fun_with_friends.medic.description": "Comparte tu salud con un compañero",
+
+  "advancements.fun_with_friends.boo.title": "¡Bah!",
+  "advancements.fun_with_friends.boo.description": "Lanza una patata venenosa directamente a tu amigo",
+
+  "advancements.fun_with_friends.shiny_quarter.title": "¡Una Moneda Brillante!",
+  "advancements.fun_with_friends.shiny_quarter.description": "Entrega un objeto directamente a tu amigo",
+
+  "command.fun_with_friends.nickcolor.unknown": "§c¡Color de apodo desconocido!",
+  "command.fun_with_friends.nickcolor.locked": "§c¡Aún no has desbloqueado el logro necesario para este color!",
+  "command.fun_with_friends.nickcolor.success": "¡El color del apodo ha cambiado a %s!",
+  "command.fun_with_friends.nickcolor.reset": "El color del apodo ha sido restablecido.",
+  "message.fun_with_friends.nickcolor.unlocked": "¡Has desbloqueado un nuevo color del apodo: %s! Utiliza §a/nickcolor §f para aplicarlo.",
+
+  "color.fun_with_friends.emerald": "Esmeralda",
+  "color.fun_with_friends.purple": "Púrpura",
+  "color.fun_with_friends.netherite_blue": "Azul Netherita",
+  "color.fun_with_friends.aquamarine": "Aguamarina",
+  "color.fun_with_friends.pebble_gray": "Gris Guijarro",
+  "color.fun_with_friends.signal_orange": "Naranja Señal",
+  "color.fun_with_friends.amethyst": "Amatista",
+  "color.fun_with_friends.crimson": "Carmesí",
+  "color.fun_with_friends.sculk_teal": "Cian Sculk",
+  "color.fun_with_friends.golden": "Dorado",
+  "color.fun_with_friends.cherry_pink": "Rosa Cerezo",
+
+
+  "entity.fun_with_friends.poison_potato": "Patata Venenosa Lanzada"
+}

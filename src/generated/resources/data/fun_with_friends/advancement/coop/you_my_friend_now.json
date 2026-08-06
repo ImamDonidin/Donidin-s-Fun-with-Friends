@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "friend_joined": {
+      "trigger": "fun_with_friends:friend_joined"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.you_my_friend_now.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:player_head"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.you_my_friend_now.title"
+    }
+  },
+  "requirements": [
+    [
+      "friend_joined"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,51 @@
+{
+  "mod.fun_with_friends.name": "Веселощі з друзями",
+  "chat.fun_with_friends.typing": "%s друкує...",
+  "coop.fun_with_friends.pulled_by": "%s витягнув(-ла) вас!",
+  "coop.fun_with_friends.pulled_other": "Ви витягнули %s!",
+  "coop.fun_with_friends.item_sent": "Надіслано: %s → %s",
+  "coop.fun_with_friends.item_received": "Отримано: %s від %s",
+  "coop.fun_with_friends.inventory_full": "Інвентар %s заповнений!",
+  "coop.fun_with_friends.health_given": "Ви поділилися здоров'ям із %s!",
+  "coop.fun_with_friends.health_received": "%s поділився(-лася) з вами здоров'ям!",
+  "coop.fun_with_friends.too_low_health": "Ви надто слабкі, щоб поділитися здоров'ям!",
+  "coop.fun_with_friends.target_full_health": "%s уже має повне здоров'я!",
+
+  "advancements.fun_with_friends.root.title": "Веселощі з друзями",
+  "advancements.fun_with_friends.root.description": "Кооперативні пригоди починаються!",
+
+  "advancements.fun_with_friends.you_my_friend_now.title": "Тепер ти мій друг",
+  "advancements.fun_with_friends.you_my_friend_now.description": "Приєднайтеся до світу разом із другом",
+
+  "advancements.fun_with_friends.war_and_peace.title": "Війна і мир",
+  "advancements.fun_with_friends.war_and_peace.description": "Друкуйте повідомлення в чаті надто довго",
+
+  "advancements.fun_with_friends.medic.title": "Медик!",
+  "advancements.fun_with_friends.medic.description": "Поділіться своїм здоров'ям із товаришем",
+
+  "advancements.fun_with_friends.boo.title": "Фу!",
+  "advancements.fun_with_friends.boo.description": "Киньте отруйну картоплину прямо у свого друга",
+
+  "advancements.fun_with_friends.shiny_quarter.title": "Блискучий четвертак!",
+  "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет безпосередньо своєму другу",
+
+  "command.fun_with_friends.nickcolor.unknown": "§cНевідомий колір нікнейма!",
+  "command.fun_with_friends.nickcolor.locked": "§cВи ще не розблокували необхідне досягнення для цього кольору!",
+  "command.fun_with_friends.nickcolor.success": "Колір нікнейма успішно змінено на %s!",
+  "command.fun_with_friends.nickcolor.reset": "Колір нікнейма скинуто.",
+  "message.fun_with_friends.nickcolor.unlocked": "Ви розблокували новий колір нікнейма: %s! Використовуйте §a/nickcolor §f, щоб застосувати його.",
+
+  "color.fun_with_friends.emerald": "Смарагдовий",
+  "color.fun_with_friends.purple": "Фіолетовий",
+  "color.fun_with_friends.netherite_blue": "Нетеритовий синій",
+  "color.fun_with_friends.aquamarine": "Аквамариновий",
+  "color.fun_with_friends.pebble_gray": "Гальковий сірий",
+  "color.fun_with_friends.signal_orange": "Сигнальний помаранчевий",
+  "color.fun_with_friends.amethyst": "Аметистовий",
+  "color.fun_with_friends.crimson": "Багряний",
+  "color.fun_with_friends.sculk_teal": "Скалковий бірюзовий",
+  "color.fun_with_friends.golden": "Золотий",
+  "color.fun_with_friends.cherry_pink": "Сакуровий рожевий",
+
+  "entity.fun_with_friends.poison_potato": "Кинута отруйна картоплина"
+}

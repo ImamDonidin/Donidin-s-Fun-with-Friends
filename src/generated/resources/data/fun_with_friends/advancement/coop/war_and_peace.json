@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "long_typing": {
+      "trigger": "fun_with_friends:war_and_peace"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.war_and_peace.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:written_book"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.war_and_peace.title"
+    }
+  },
+  "requirements": [
+    [
+      "long_typing"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

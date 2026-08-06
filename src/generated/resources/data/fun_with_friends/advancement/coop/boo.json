@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "throw_potato": {
+      "trigger": "fun_with_friends:boo"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.boo.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:poisonous_potato"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.boo.title"
+    }
+  },
+  "requirements": [
+    [
+      "throw_potato"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
