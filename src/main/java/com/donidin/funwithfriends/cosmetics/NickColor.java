@@ -14,8 +14,13 @@ public enum NickColor {
     SCULK_TEAL("sculk_teal", 0x008080, ResourceLocation.parse("minecraft:adventure/avoid_vibration")),
     GOLDEN("golden", 0xFFD700, ResourceLocation.parse("minecraft:husbandry/make_a_sign_glow")),
     CHERRY_PINK("cherry_pink", 0xFFB7C5, ResourceLocation.parse("minecraft:husbandry/allay_deliver_cake_to_note_block")),
-    DIAMOND_BLUE("diamond_blue",0x1E90FF, ResourceLocation.parse("minecraft:story/mine_diamond")),
-    HONEY_YELLOW("honey_yellow",0xA98307, ResourceLocation.parse("minecraft:husbandry/wax_on"));
+    DIAMOND_BLUE("diamond_blue", 0x1E90FF, ResourceLocation.parse("minecraft:story/mine_diamond")),
+    HONEY_YELLOW("honey_yellow", 0xA98307, ResourceLocation.parse("minecraft:husbandry/wax_on")),
+    ROYAL_BLUE("royal_blue", 0x4169E1, ResourceLocation.parse("minecraft:story/shiny_gear")),
+    ENDPLE("endple", 0xFF00FF, ResourceLocation.parse("minecraft:end/enter_end_gateway")),
+    SO_GREENISH("so_greenish", 0xBFFF00, ResourceLocation.parse("minecraft:husbandry/plant_seed")),
+    GRAY_AS_ANDESITE("gray_as_andesite", 0x808080, ResourceLocation.parse("minecraft:adventure/minecraft_trials_edition")),
+    NINNI_TEAL("ninni_teal", 0x1E5945, ResourceLocation.parse("minecraft:adventure/adventuring_time"));
 
     private final String id;
     private final int hexColor;
