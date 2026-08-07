@@ -29,6 +29,9 @@
   "advancements.fun_with_friends.shiny_quarter.title": "A Shiny Quarter!",
   "advancements.fun_with_friends.shiny_quarter.description": "Hand an item directly to your friend",
 
+  "advancements.fun_with_friends.hot_potato.title": "Hot Potato",
+  "advancements.fun_with_friends.hot_potato.description": "Throw a primed TNT straight out of your hands!",
+
   "command.fun_with_friends.nickcolor.unknown": "§cUnknown nick color!",
   "command.fun_with_friends.nickcolor.locked": "§cYou haven't unlocked the required advancement for this color yet!",
   "command.fun_with_friends.nickcolor.success": "Nick color successfully changed to %s!",
@@ -46,6 +49,8 @@
   "color.fun_with_friends.sculk_teal": "Sculk Teal",
   "color.fun_with_friends.golden": "Golden",
   "color.fun_with_friends.cherry_pink": "Cherry Pink",
+  "color.fun_with_friends.diamond_blue": "Diamond Blue",
+  "color.fun_with_friends.honey_yellow": "Honey Yellow",
 
   "entity.fun_with_friends.poison_potato": "Thrown Poisonous Potato"
 }

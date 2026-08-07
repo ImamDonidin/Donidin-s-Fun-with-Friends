@@ -13,7 +13,9 @@ public enum NickColor {
     CRIMSON("crimson", 0xDC143C, ResourceLocation.parse("minecraft:nether/find_bastion")),
     SCULK_TEAL("sculk_teal", 0x008080, ResourceLocation.parse("minecraft:adventure/avoid_vibration")),
     GOLDEN("golden", 0xFFD700, ResourceLocation.parse("minecraft:husbandry/make_a_sign_glow")),
-    CHERRY_PINK("cherry_pink", 0xFFB7C5, ResourceLocation.parse("minecraft:husbandry/allay_deliver_cake_to_note_block"));
+    CHERRY_PINK("cherry_pink", 0xFFB7C5, ResourceLocation.parse("minecraft:husbandry/allay_deliver_cake_to_note_block")),
+    DIAMOND_BLUE("diamond_blue",0x1E90FF, ResourceLocation.parse("minecraft:story/mine_diamond")),
+    HONEY_YELLOW("honey_yellow",0xA98307, ResourceLocation.parse("minecraft:husbandry/wax_on"));
 
     private final String id;
     private final int hexColor;

@@ -29,6 +29,9 @@
   "advancements.fun_with_friends.shiny_quarter.title": "Блискучий четвертак!",
   "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет безпосередньо своєму другу",
 
+  "advancements.fun_with_friends.hot_potato.title": "Гаряча картопля",
+  "advancements.fun_with_friends.hot_potato.description": "Киньте запалений динаміт прямо з рук!",
+
   "command.fun_with_friends.nickcolor.unknown": "§cНевідомий колір нікнейма!",
   "command.fun_with_friends.nickcolor.locked": "§cВи ще не розблокували необхідне досягнення для цього кольору!",
   "command.fun_with_friends.nickcolor.success": "Колір нікнейма успішно змінено на %s!",
@@ -46,6 +49,8 @@
   "color.fun_with_friends.sculk_teal": "Скалковий бірюзовий",
   "color.fun_with_friends.golden": "Золотий",
   "color.fun_with_friends.cherry_pink": "Сакуровий рожевий",
+  "color.fun_with_friends.diamond_blue": "Алмазно-блакитний",
+  "color.fun_with_friends.honey_yellow": "Медово-жовтий",
 
   "entity.fun_with_friends.poison_potato": "Кинута отруйна картоплина"
 }

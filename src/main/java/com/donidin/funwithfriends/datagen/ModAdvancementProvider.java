@@ -116,6 +116,21 @@ public class ModAdvancementProvider extends AdvancementProvider {
                     )
                     .addCriterion("give_item", ModTriggers.SHINY_QUARTER.get().createCriterion(new CoopTrigger.TriggerInstance(Optional.empty())))
                     .save(saver, ResourceLocation.fromNamespaceAndPath(FunWithFriends.MOD_ID, "coop/shiny_quarter"), existingFileHelper);
+
+            AdvancementHolder hotPotato = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(
+                            Items.TNT,
+                            Component.translatable("advancements.fun_with_friends.hot_potato.title"),
+                            Component.translatable("advancements.fun_with_friends.hot_potato.description"),
+                            null,
+                            AdvancementType.TASK,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion("throw_tnt", ModTriggers.HOT_POTATO.get().createCriterion(new CoopTrigger.TriggerInstance(Optional.empty())))
+                    .save(saver, ResourceLocation.fromNamespaceAndPath(FunWithFriends.MOD_ID, "coop/hot_potato"), existingFileHelper);
         }
     }
 }

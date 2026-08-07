@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "throw_tnt": {
+      "trigger": "fun_with_friends:hot_potato"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.hot_potato.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:tnt"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.hot_potato.title"
+    }
+  },
+  "requirements": [
+    [
+      "throw_tnt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

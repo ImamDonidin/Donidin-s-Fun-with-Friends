@@ -20,4 +20,6 @@ public class ModTriggers {
             TRIGGERS.register("boo", CoopTrigger::new);
     public static final DeferredHolder<CriterionTrigger<?>, CoopTrigger> SHINY_QUARTER =
             TRIGGERS.register("shiny_quarter", CoopTrigger::new);
+    public static final DeferredHolder<CriterionTrigger<?>, CoopTrigger> HOT_POTATO =
+            TRIGGERS.register("hot_potato", CoopTrigger::new);
 }

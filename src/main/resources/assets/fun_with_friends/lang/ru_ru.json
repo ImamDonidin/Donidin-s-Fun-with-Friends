@@ -29,6 +29,9 @@
   "advancements.fun_with_friends.shiny_quarter.title": "Блестящий четвертак!",
   "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет прямо своему другу",
 
+  "advancements.fun_with_friends.hot_potato.title": "Горячая картошка",
+  "advancements.fun_with_friends.hot_potato.description": "Бросьте зажжённый динамит прямо из рук!",
+
   "command.fun_with_friends.nickcolor.unknown": "§cНеизвестный цвет ника!",
   "command.fun_with_friends.nickcolor.locked": "§cВы ещё не разблокировали необходимое достижение для этого цвета!",
   "command.fun_with_friends.nickcolor.success": "Цвет ника успешно изменён на %s!",
@@ -46,6 +49,8 @@
   "color.fun_with_friends.sculk_teal": "Скалковый бирюзовый",
   "color.fun_with_friends.golden": "Золотой",
   "color.fun_with_friends.cherry_pink": "Сакуровый розовый",
+  "color.fun_with_friends.diamond_blue": "Алмазно-голубой",
+  "color.fun_with_friends.honey_yellow": "Медово-жёлтый",
 
   "entity.fun_with_friends.poison_potato": "Брошенная ядовитая картошка"
 }
