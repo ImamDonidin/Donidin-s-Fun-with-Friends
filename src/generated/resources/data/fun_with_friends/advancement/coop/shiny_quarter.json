@@ -1,5 +1,5 @@
 {
-  "parent": "fun_with_friends:coop/root",
+  "parent": "fun_with_friends:coop/you_my_friend_now",
   "criteria": {
     "give_item": {
       "trigger": "fun_with_friends:shiny_quarter"

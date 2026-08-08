@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/boo",
+  "criteria": {
+    "friendly_fire": {
+      "trigger": "fun_with_friends:oops_my_bad"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.oops_my_bad.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:bow"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.oops_my_bad.title"
+    }
+  },
+  "requirements": [
+    [
+      "friendly_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

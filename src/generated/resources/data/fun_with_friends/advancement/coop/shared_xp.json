@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/banquet",
+  "criteria": {
+    "get_bonus_xp": {
+      "trigger": "fun_with_friends:shared_xp"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.shared_xp.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:experience_bottle"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.shared_xp.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_bonus_xp"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

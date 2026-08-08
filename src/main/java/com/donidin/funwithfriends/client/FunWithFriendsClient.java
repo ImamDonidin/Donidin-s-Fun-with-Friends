@@ -15,6 +15,7 @@ public class FunWithFriendsClient {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.POISON_POTATO.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ModEntities.SLIME_BALL.get(), ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

@@ -1,5 +1,5 @@
 {
-  "parent": "fun_with_friends:coop/root",
+  "parent": "fun_with_friends:coop/boo",
   "criteria": {
     "throw_tnt": {
       "trigger": "fun_with_friends:hot_potato"

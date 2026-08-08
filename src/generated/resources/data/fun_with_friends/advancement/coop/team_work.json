@@ -1,0 +1,27 @@
+{
+  "parent": "fun_with_friends:coop/shared_xp",
+  "criteria": {
+    "fight_together": {
+      "trigger": "fun_with_friends:team_work"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.team_work.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:diamond_sword"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.team_work.title"
+    }
+  },
+  "requirements": [
+    [
+      "fight_together"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

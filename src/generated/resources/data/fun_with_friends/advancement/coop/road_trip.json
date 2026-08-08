@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/you_my_friend_now",
+  "criteria": {
+    "ride": {
+      "trigger": "fun_with_friends:road_trip"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.road_trip.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:oak_boat"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.road_trip.title"
+    }
+  },
+  "requirements": [
+    [
+      "ride"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

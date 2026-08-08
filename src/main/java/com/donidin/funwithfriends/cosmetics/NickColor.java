@@ -2,6 +2,9 @@ package com.donidin.funwithfriends.cosmetics;
 
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum NickColor {
     EMERALD("emerald", 0x50C878, ResourceLocation.parse("minecraft:story/cure_zombie_villager")),
     PURPLE("purple", 0xA020F0, ResourceLocation.parse("minecraft:nether/return_to_sender")),
@@ -26,7 +29,15 @@ public enum NickColor {
     private final String id;
     private final int hexColor;
     private final ResourceLocation advancementId;
+
     public static final NickColor[] VALUES = values();
+    private static final Map<ResourceLocation, NickColor> BY_ADVANCEMENT = new HashMap<>();
+
+    static {
+        for (NickColor color : VALUES) {
+            BY_ADVANCEMENT.put(color.advancementId, color);
+        }
+    }
 
     NickColor(String id, int hexColor, ResourceLocation advancementId) {
         this.id = id;
@@ -43,5 +54,9 @@ public enum NickColor {
             if (color.id.equalsIgnoreCase(id)) return color;
         }
         return null;
+    }
+
+    public static NickColor fromAdvancement(ResourceLocation advancementId) {
+        return BY_ADVANCEMENT.get(advancementId);
     }
 }

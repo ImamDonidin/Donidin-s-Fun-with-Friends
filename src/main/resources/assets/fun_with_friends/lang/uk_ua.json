@@ -1,42 +1,80 @@
 {
-  "mod.fun_with_friends.name": "Веселощі з друзями",
   "chat.fun_with_friends.typing": "%s друкує...",
   "coop.fun_with_friends.pulled_by": "%s витягнув(-ла) вас!",
   "coop.fun_with_friends.pulled_other": "Ви витягнули %s!",
   "coop.fun_with_friends.item_sent": "Надіслано: %s → %s",
   "coop.fun_with_friends.item_received": "Отримано: %s від %s",
   "coop.fun_with_friends.inventory_full": "Інвентар %s заповнений!",
-  "coop.fun_with_friends.health_given": "Ви поділилися здоров'ям із %s!",
-  "coop.fun_with_friends.health_received": "%s поділився(-лася) з вами здоров'ям!",
-  "coop.fun_with_friends.too_low_health": "Ви надто слабкі, щоб поділитися здоров'ям!",
-  "coop.fun_with_friends.target_full_health": "%s уже має повне здоров'я!",
+  "coop.fun_with_friends.high_five": "Ви дали п'ять %s!",
+
+  "coop.fun_with_friends.party_created": "%s та %s створили групу!",
+  "coop.fun_with_friends.party_joined": "%s приєднався до групи!",
+  "coop.fun_with_friends.party_already_in_party": "%s вже перебуває в іншій групі!",
+  "coop.fun_with_friends.party_full": "Група вже заповнена! (Макс. 4 гравці)",
+  "coop.fun_with_friends.party_left_self": "Ви залишили групу",
+  "coop.fun_with_friends.party_member_left": "%s залишив групу",
+  "coop.fun_with_friends.party_dissolved": "Групу було розформовано",
+  "coop.fun_with_friends.party_members_far": "Усі учасники вашої групи надто далеко!",
+
+  "coop.fun_with_friends.party_kicked": "%s був виключений з групи",
+  "coop.fun_with_friends.party_kicked_self": "Вас виключили з групи",
+  "command.fun_with_friends.party.not_in_party": "Ви не перебуваєте в групі!",
+  "command.fun_with_friends.party.not_leader": "Тільки лідер групи може робити це!",
+  "command.fun_with_friends.party.cannot_invite_self": "Ви не можете запросити самого себе!",
+  "command.fun_with_friends.party.cannot_kick_self": "Ви не можете виключити себе! Використовуйте /party leave",
+  "command.fun_with_friends.party.target_not_in_party": "Цей гравець не перебуває у вашій групі!",
+  "command.fun_with_friends.party.list_header": "--- Учасники групи (%d/%d) ---",
 
   "advancements.fun_with_friends.root.title": "Веселощі з друзями",
-  "advancements.fun_with_friends.root.description": "Кооперативні пригоди починаються!",
+  "advancements.fun_with_friends.root.description": "Початок спільних пригод!",
 
-  "advancements.fun_with_friends.you_my_friend_now.title": "Тепер ти мій друг",
-  "advancements.fun_with_friends.you_my_friend_now.description": "Приєднайтеся до світу разом із другом",
+  "advancements.fun_with_friends.you_my_friend_now.title": "Тепер ти мій друг!",
+  "advancements.fun_with_friends.you_my_friend_now.description": "Увійдіть до групи з іншим гравцем",
+
+  "advancements.fun_with_friends.shiny_quarter.title": "Блискуча монетка",
+  "advancements.fun_with_friends.shiny_quarter.description": "Поділіться цінною знахідкою з сопартійцем",
+
+  "advancements.fun_with_friends.trade_deal.title": "Вигідна угода",
+  "advancements.fun_with_friends.trade_deal.description": "Передайте предмет іншому гравцю з групи",
+
+  "advancements.fun_with_friends.high_five.title": "Дай п'ять!",
+  "advancements.fun_with_friends.high_five.description": "Привітайте друга на відстані витягнутої руки",
+
+  "advancements.fun_with_friends.good_night.title": "Тиха година",
+  "advancements.fun_with_friends.good_night.description": "Засніть одночасно з усіма учасниками паті",
+
+  "advancements.fun_with_friends.road_trip.title": "Спільний вояж",
+  "advancements.fun_with_friends.road_trip.description": "Вирушайте у поїздку разом на одному човні чи вагонетці",
+
+  "advancements.fun_with_friends.banquet.title": "Шведський стіл",
+  "advancements.fun_with_friends.banquet.description": "Улаштуйте спільну перекуску з другом",
+
+  "advancements.fun_with_friends.shared_xp.title": "Школа дружби",
+  "advancements.fun_with_friends.shared_xp.description": "Отримайте бонусний досвід, перебуваючи поруч із сопартійцем",
+
+  "advancements.fun_with_friends.team_work.title": "Командна робота",
+  "advancements.fun_with_friends.team_work.description": "Здолайте сильного ворога пліч-о-пліч із другом",
 
   "advancements.fun_with_friends.war_and_peace.title": "Війна і мир",
-  "advancements.fun_with_friends.war_and_peace.description": "Друкуйте повідомлення в чаті надто довго",
-
-  "advancements.fun_with_friends.medic.title": "Медик!",
-  "advancements.fun_with_friends.medic.description": "Поділіться своїм здоров'ям із товаришем",
+  "advancements.fun_with_friends.war_and_peace.description": "Наберіть цілу поему в чаті",
 
   "advancements.fun_with_friends.boo.title": "Фу!",
-  "advancements.fun_with_friends.boo.description": "Киньте отруйну картоплину прямо у свого друга",
-
-  "advancements.fun_with_friends.shiny_quarter.title": "Блискучий четвертак!",
-  "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет безпосередньо своєму другу",
+  "advancements.fun_with_friends.boo.description": "Киньте в друга отруйну картоплю",
 
   "advancements.fun_with_friends.hot_potato.title": "Гаряча картопля",
-  "advancements.fun_with_friends.hot_potato.description": "Киньте запалений динаміт прямо з рук!",
+  "advancements.fun_with_friends.hot_potato.description": "Передайте запалений динаміт або гарячий сюрприз сопартійцю",
+
+  "advancements.fun_with_friends.oops_my_bad.title": "Ой, я випадково!",
+  "advancements.fun_with_friends.oops_my_bad.description": "Завдайте шкоди своєму сопартійцю",
+
+  "advancements.fun_with_friends.true_friendship.title": "Незламна четвірка",
+  "advancements.fun_with_friends.true_friendship.description": "Зберіть повний загін із 4 осіб в одній групі!",
 
   "command.fun_with_friends.nickcolor.unknown": "§cНевідомий колір нікнейма!",
   "command.fun_with_friends.nickcolor.locked": "§cВи ще не розблокували необхідне досягнення для цього кольору!",
   "command.fun_with_friends.nickcolor.success": "Колір нікнейма успішно змінено на %s!",
-  "command.fun_with_friends.nickcolor.reset": "Колір нікнейма скинуто.",
-  "message.fun_with_friends.nickcolor.unlocked": "Ви розблокували новий колір нікнейма: %s! Використовуйте §a/nickcolor §f, щоб застосувати його.",
+  "command.fun_with_friends.nickcolor.reset": "Колір нікнейма скинуто",
+  "message.fun_with_friends.nickcolor.unlocked": "Ви розблокували новий колір нікнейма: %s! Використовуйте §a/nickcolor §f, щоб застосувати його",
 
   "color.fun_with_friends.emerald": "Смарагдовий",
   "color.fun_with_friends.purple": "Фіолетовий",

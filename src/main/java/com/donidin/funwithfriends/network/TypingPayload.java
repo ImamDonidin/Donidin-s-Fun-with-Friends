@@ -1,7 +1,8 @@
 package com.donidin.funwithfriends.network;
 
 import com.donidin.funwithfriends.FunWithFriends;
-import com.donidin.funwithfriends.client.ClientTypingData;
+import com.donidin.funwithfriends.event.PlayerJoinAndTypingEvents;
+import com.donidin.funwithfriends.util.TypingData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -12,14 +13,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 public record TypingPayload(boolean isTyping) implements CustomPacketPayload {
     public static final Type<TypingPayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(FunWithFriends.MOD_ID, "typing_state"));
-
-    private static final Set<UUID> SERVER_TYPING_PLAYERS = ConcurrentHashMap.newKeySet();
 
     public static final StreamCodec<ByteBuf, TypingPayload> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.BOOL, TypingPayload::isTyping,
@@ -31,18 +28,12 @@ public record TypingPayload(boolean isTyping) implements CustomPacketPayload {
         return TYPE;
     }
 
-    public static boolean isPlayerTypingOnServer(UUID uuid) {
-        return SERVER_TYPING_PLAYERS.contains(uuid);
-    }
-
     public static void handleOnServer(TypingPayload payload, IPayloadContext context) {
         context.enqueueWork(() -> {
             if (context.player() instanceof ServerPlayer player) {
-                if (payload.isTyping()) {
-                    SERVER_TYPING_PLAYERS.add(player.getUUID());
-                } else {
-                    SERVER_TYPING_PLAYERS.remove(player.getUUID());
-                }
+                TypingData.setTyping(player.getUUID(), payload.isTyping());
+
+                PlayerJoinAndTypingEvents.onPlayerTypingStateChanged(player, payload.isTyping());
 
                 PacketDistributor.sendToPlayersTrackingEntity(player, new StateUpdate(player.getUUID(), payload.isTyping()));
             }
@@ -65,7 +56,7 @@ public record TypingPayload(boolean isTyping) implements CustomPacketPayload {
 
         public static void handleOnClient(StateUpdate payload, IPayloadContext context) {
             context.enqueueWork(() -> {
-                ClientTypingData.setTyping(payload.playerUuid(), payload.isTyping());
+                TypingData.setTyping(payload.playerUuid(), payload.isTyping());
             });
         }
     }

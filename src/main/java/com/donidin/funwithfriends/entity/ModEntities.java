@@ -19,4 +19,13 @@ public class ModEntities {
                             .updateInterval(10)
                             .build("poison_potato")
             );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeballEntity>> SLIME_BALL =
+            ENTITY_TYPES.register("slimeball", () ->
+                    EntityType.Builder.<SlimeballEntity>of(SlimeballEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build("slimeball")
+            );
 }

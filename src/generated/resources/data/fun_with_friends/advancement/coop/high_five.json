@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/you_my_friend_now",
+  "criteria": {
+    "high_five": {
+      "trigger": "fun_with_friends:high_five"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.high_five.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:slime_ball"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.high_five.title"
+    }
+  },
+  "requirements": [
+    [
+      "high_five"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

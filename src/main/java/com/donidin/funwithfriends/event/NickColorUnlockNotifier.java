@@ -2,7 +2,6 @@ package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.cosmetics.NickColor;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,13 +16,9 @@ public class NickColorUnlockNotifier {
     public static void onAdvancementEarned(AdvancementEvent.AdvancementEarnEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
 
-        AdvancementHolder earnedAdvancement = event.getAdvancement();
-
-        for (NickColor color : NickColor.VALUES) {
-            if (color.getAdvancementId().equals(earnedAdvancement.id())) {
-                notifyUnlock(player, color);
-                break;
-            }
+        NickColor unlockedColor = NickColor.fromAdvancement(event.getAdvancement().id());
+        if (unlockedColor != null) {
+            notifyUnlock(player, unlockedColor);
         }
     }
 

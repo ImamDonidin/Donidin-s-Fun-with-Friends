@@ -7,8 +7,14 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
 @EventBusSubscriber(modid = FunWithFriends.MOD_ID)
 public class PlayerJoinAndTypingEvents {
+
+    private static final Map<UUID, Long> TYPING_START_TIMES = new ConcurrentHashMap<>();
 
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
@@ -23,9 +29,23 @@ public class PlayerJoinAndTypingEvents {
         }
     }
 
-    public static void checkLongTypingAdvancement(ServerPlayer player, long typingDurationTicks) {
-        if (typingDurationTicks >= 300) {
-            ModTriggers.WAR_AND_PEACE.get().trigger(player);
+    @SubscribeEvent
+    public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        TYPING_START_TIMES.remove(event.getEntity().getUUID());
+    }
+
+    public static void onPlayerTypingStateChanged(ServerPlayer player, boolean isTyping) {
+        UUID uuid = player.getUUID();
+        if (isTyping) {
+            TYPING_START_TIMES.put(uuid, System.currentTimeMillis());
+        } else {
+            Long startTime = TYPING_START_TIMES.remove(uuid);
+            if (startTime != null) {
+                long durationMs = System.currentTimeMillis() - startTime;
+                if (durationMs >= 15000) {
+                    ModTriggers.WAR_AND_PEACE.get().trigger(player);
+                }
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
-package com.donidin.funwithfriends.client;
+package com.donidin.funwithfriends.util;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class ClientTypingData {
+public class TypingData {
     private static final Set<UUID> TYPING_PLAYERS = ConcurrentHashMap.newKeySet();
 
     public static void setTyping(UUID uuid, boolean isTyping) {
@@ -17,5 +17,9 @@ public class ClientTypingData {
 
     public static boolean isTyping(UUID uuid) {
         return TYPING_PLAYERS.contains(uuid);
+    }
+
+    public static void clear() {
+        TYPING_PLAYERS.clear();
     }
 }

@@ -43,7 +43,7 @@ public class NickColorCommand {
 
     private static CompletableFuture<Suggestions> suggestColors(CommandContext<CommandSourceStack> context, SuggestionsBuilder builder) {
         if (context.getSource().getEntity() instanceof ServerPlayer player) {
-            for (NickColor color : NickColor.values()) {
+            for (NickColor color : NickColor.VALUES) {
                 AdvancementHolder advancement = player.getServer().getAdvancements().get(color.getAdvancementId());
                 if (advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone()) {
                     builder.suggest(color.getId());

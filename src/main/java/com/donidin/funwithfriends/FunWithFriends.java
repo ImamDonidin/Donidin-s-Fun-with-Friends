@@ -1,7 +1,6 @@
 package com.donidin.funwithfriends;
 
 import com.donidin.funwithfriends.advancement.ModTriggers;
-import com.donidin.funwithfriends.command.NickColorCommand;
 import com.donidin.funwithfriends.datagen.ModAdvancementProvider;
 import com.donidin.funwithfriends.entity.ModEntities;
 import com.donidin.funwithfriends.init.ModDataAttachments;
@@ -11,11 +10,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
@@ -27,18 +24,15 @@ public class FunWithFriends {
 
     public FunWithFriends(IEventBus modEventBus) {
         modEventBus.addListener(this::registerPayloads);
-
         modEventBus.addListener(this::onGatherData);
 
         ModTriggers.TRIGGERS.register(modEventBus);
-
         ModDataAttachments.ATTACHMENT_TYPES.register(modEventBus);
-
         ModEntities.ENTITY_TYPES.register(modEventBus);
     }
 
     private void registerPayloads(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar(FunWithFriends.MOD_ID)
+        final PayloadRegistrar registrar = event.registrar("1")
                 .optional();
 
         registrar.playToServer(

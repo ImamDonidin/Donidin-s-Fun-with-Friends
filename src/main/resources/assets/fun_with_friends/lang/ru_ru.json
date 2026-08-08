@@ -1,42 +1,80 @@
 {
-  "mod.fun_with_friends.name": "Веселье с друзьями",
   "chat.fun_with_friends.typing": "%s печатает...",
-  "coop.fun_with_friends.pulled_by": "%s вытащил(а) вас!",
-  "coop.fun_with_friends.pulled_other": "Вы вытащили %s!",
+  "coop.fun_with_friends.pulled_by": "%s вытянул(-а) вас!",
+  "coop.fun_with_friends.pulled_other": "Вы вытянули %s!",
   "coop.fun_with_friends.item_sent": "Отправлено: %s → %s",
   "coop.fun_with_friends.item_received": "Получено: %s от %s",
-  "coop.fun_with_friends.inventory_full": "Инвентарь %s заполнен!",
-  "coop.fun_with_friends.health_given": "Вы поделились здоровьем с %s!",
-  "coop.fun_with_friends.health_received": "%s поделился(ась) с вами здоровьем!",
-  "coop.fun_with_friends.too_low_health": "Вы слишком слабы, чтобы делиться здоровьем!",
-  "coop.fun_with_friends.target_full_health": "У %s уже полное здоровье!",
+  "coop.fun_with_friends.inventory_full": "Инвентарь %s полон!",
+  "coop.fun_with_friends.high_five": "Вы дали пять %s!",
+
+  "coop.fun_with_friends.party_created": "%s и %s создали группу!",
+  "coop.fun_with_friends.party_joined": "%s присоединился к группе!",
+  "coop.fun_with_friends.party_already_in_party": "%s уже состоит в другой группе!",
+  "coop.fun_with_friends.party_full": "Группа уже заполнена! (Макс. 4 игрока)",
+  "coop.fun_with_friends.party_left_self": "Вы покинули группу",
+  "coop.fun_with_friends.party_member_left": "%s покинул группу",
+  "coop.fun_with_friends.party_dissolved": "Группа была расформирована",
+  "coop.fun_with_friends.party_members_far": "Все участники вашей группы слишком далеко!",
+
+  "coop.fun_with_friends.party_kicked": "%s был исключен из группы",
+  "coop.fun_with_friends.party_kicked_self": "Вас исключили из группы",
+  "command.fun_with_friends.party.not_in_party": "Вы не состоите в группе!",
+  "command.fun_with_friends.party.not_leader": "Только лидер группы может делать это!",
+  "command.fun_with_friends.party.cannot_invite_self": "Вы не можете пригласить самого себя!",
+  "command.fun_with_friends.party.cannot_kick_self": "Вы не можете исключить себя! Используйте /party leave",
+  "command.fun_with_friends.party.target_not_in_party": "Этот игрок не состоит в вашей группе!",
+  "command.fun_with_friends.party.list_header": "--- Участники группы (%d/%d) ---",
 
   "advancements.fun_with_friends.root.title": "Веселье с друзьями",
-  "advancements.fun_with_friends.root.description": "Кооперативные приключения начинаются!",
+  "advancements.fun_with_friends.root.description": "Начало совместных приключений!",
 
-  "advancements.fun_with_friends.you_my_friend_now.title": "Теперь ты мой друг",
-  "advancements.fun_with_friends.you_my_friend_now.description": "Зайдите в мир вместе с другом",
+  "advancements.fun_with_friends.you_my_friend_now.title": "Теперь ты мой друг!",
+  "advancements.fun_with_friends.you_my_friend_now.description": "Вступите в группу с другим игроком",
+
+  "advancements.fun_with_friends.shiny_quarter.title": "Блестящая монетка",
+  "advancements.fun_with_friends.shiny_quarter.description": "Поделитесь ценной находкой с сопартийцем",
+
+  "advancements.fun_with_friends.trade_deal.title": "Выгодный обмен",
+  "advancements.fun_with_friends.trade_deal.description": "Передайте предмет другому игроку из группы",
+
+  "advancements.fun_with_friends.high_five.title": "Дай пять!",
+  "advancements.fun_with_friends.high_five.description": "Поприветствуйте друга на расстоянии вытянутой руки",
+
+  "advancements.fun_with_friends.good_night.title": "Тихий час",
+  "advancements.fun_with_friends.good_night.description": "Засните одновременно со всеми участниками пати",
+
+  "advancements.fun_with_friends.road_trip.title": "Совместный вояж",
+  "advancements.fun_with_friends.road_trip.description": "Отправьтесь в поездку вместе на одной лодке или вагонетке",
+
+  "advancements.fun_with_friends.banquet.title": "Шведский стол",
+  "advancements.fun_with_friends.banquet.description": "Устройте совместный перекус с другом",
+
+  "advancements.fun_with_friends.shared_xp.title": "Школа дружбы",
+  "advancements.fun_with_friends.shared_xp.description": "Получите бонусный опыт, находясь рядом с сопартийцем",
+
+  "advancements.fun_with_friends.team_work.title": "Командная работа",
+  "advancements.fun_with_friends.team_work.description": "Одолейте сильного врага бок о бок с другом",
 
   "advancements.fun_with_friends.war_and_peace.title": "Война и мир",
-  "advancements.fun_with_friends.war_and_peace.description": "Печатайте сообщение в чате слишком долго",
-
-  "advancements.fun_with_friends.medic.title": "Медик!",
-  "advancements.fun_with_friends.medic.description": "Поделитесь своим здоровьем с товарищем",
+  "advancements.fun_with_friends.war_and_peace.description": "Наберите целую поэму в чате",
 
   "advancements.fun_with_friends.boo.title": "Фу!",
-  "advancements.fun_with_friends.boo.description": "Бросьте ядовитую картошку прямо в своего друга",
-
-  "advancements.fun_with_friends.shiny_quarter.title": "Блестящий четвертак!",
-  "advancements.fun_with_friends.shiny_quarter.description": "Передайте предмет прямо своему другу",
+  "advancements.fun_with_friends.boo.description": "Бросьте в друга ядовитую картошку",
 
   "advancements.fun_with_friends.hot_potato.title": "Горячая картошка",
-  "advancements.fun_with_friends.hot_potato.description": "Бросьте зажжённый динамит прямо из рук!",
+  "advancements.fun_with_friends.hot_potato.description": "Передайте зажжённый динамит или горячий сюрприз сопартийцу",
+
+  "advancements.fun_with_friends.oops_my_bad.title": "Ой, я случайно!",
+  "advancements.fun_with_friends.oops_my_bad.description": "Нанесите урон своему сопартийцу",
+
+  "advancements.fun_with_friends.true_friendship.title": "Неразлучная четвёрка",
+  "advancements.fun_with_friends.true_friendship.description": "Соберите полный отряд из 4 человек в одной группе!",
 
   "command.fun_with_friends.nickcolor.unknown": "§cНеизвестный цвет ника!",
-  "command.fun_with_friends.nickcolor.locked": "§cВы ещё не разблокировали необходимое достижение для этого цвета!",
-  "command.fun_with_friends.nickcolor.success": "Цвет ника успешно изменён на %s!",
-  "command.fun_with_friends.nickcolor.reset": "Цвет ника сброшен.",
-  "message.fun_with_friends.nickcolor.unlocked": "Вы разблокировали новый цвет ника: %s! Используйте §a/nickcolor §fчтобы применить.",
+  "command.fun_with_friends.nickcolor.locked": "§cВы еще не разблокировали необходимое достижение для этого цвета!",
+  "command.fun_with_friends.nickcolor.success": "Цвет ника успешно изменен на %s!",
+  "command.fun_with_friends.nickcolor.reset": "Цвет ника сброшен",
+  "message.fun_with_friends.nickcolor.unlocked": "Вы разблокировали новый цвет ника: %s! Используйте §a/nickcolor §f, чтобы применить его",
 
   "color.fun_with_friends.emerald": "Изумрудный",
   "color.fun_with_friends.purple": "Фиолетовый",
@@ -50,13 +88,13 @@
   "color.fun_with_friends.golden": "Золотой",
   "color.fun_with_friends.cherry_pink": "Сакуровый розовый",
   "color.fun_with_friends.diamond_blue": "Алмазно-голубой",
-  "color.fun_with_friends.honey_yellow": "Медово-жёлтый",
+  "color.fun_with_friends.honey_yellow": "Медово-желтый",
   "color.fun_with_friends.royal_blue": "Королевский синий",
   "color.fun_with_friends.endple": "Эндпурпурный",
   "color.fun_with_friends.so_greenish": "Ядовито-салатовый",
   "color.fun_with_friends.gray_as_andesite": "Андезитовый серый",
   "color.fun_with_friends.ninni_teal": "Морской бирюзовый",
-  "color.fun_with_friends.blue_magic": "Синяя Магия",
+  "color.fun_with_friends.blue_magic": "Синяя магия",
 
-  "entity.fun_with_friends.poison_potato": "Брошенная ядовитая картошка"
+  "entity.fun_with_friends.poison_potato": "Брошенный ядовитый картофель"
 }

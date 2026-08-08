@@ -33,17 +33,20 @@ public class TntThrowEvent {
                 return;
             }
 
-            if (player instanceof ServerPlayer serverPlayer) {
-                ModTriggers.HOT_POTATO.get().trigger(serverPlayer);
-            }
-
             Level level = event.getLevel();
+            InteractionHand hand = event.getHand();
 
-            Player exceptPlayer = (player instanceof ServerPlayer) ? player : null;
-            level.playSound(exceptPlayer, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.TNT_PRIMED, SoundSource.PLAYERS, 1.0F, 1.0F);
+            level.playSound(
+                    null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.TNT_PRIMED, SoundSource.PLAYERS,
+                    1.0F, 1.0F
+            );
 
             if (!level.isClientSide()) {
+                if (player instanceof ServerPlayer serverPlayer) {
+                    ModTriggers.HOT_POTATO.get().trigger(serverPlayer);
+                }
+
                 PrimedTnt tnt = new PrimedTnt(level, player.getX(), player.getEyeY() - 0.1, player.getZ(), player);
                 tnt.setFuse(60);
 
@@ -51,18 +54,18 @@ public class TntThrowEvent {
                 tnt.setDeltaMovement(look.x * 1.2, look.y * 1.2 + 0.2, look.z * 1.2);
 
                 level.addFreshEntity(tnt);
+
+                player.awardStat(Stats.ITEM_USED.get(Items.TNT));
+                player.getCooldowns().addCooldown(Items.TNT, THROW_COOLDOWN);
+
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
             }
 
-            player.swing(event.getHand(), true);
-            player.awardStat(Stats.ITEM_USED.get(Items.TNT));
-            player.getCooldowns().addCooldown(Items.TNT, THROW_COOLDOWN);
-
-            if (!player.getAbilities().instabuild) {
-                stack.shrink(1);
-            }
-
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
+            player.swing(hand, true);
             event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
         }
     }
 }

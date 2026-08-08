@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/root",
+  "criteria": {
+    "eat_together": {
+      "trigger": "fun_with_friends:banquet"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.banquet.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:cooked_beef"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.banquet.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_together"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

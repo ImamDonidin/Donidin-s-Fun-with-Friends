@@ -6,13 +6,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ServerChatEvent;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @EventBusSubscriber(modid = FunWithFriends.MOD_ID)
 public class ChatEmojiEvent {
 
-    private static final Map<String, String> EMOJI_MAP = new HashMap<>();
+    private static final Map<String, String> EMOJI_MAP = new LinkedHashMap<>();
 
     static {
         EMOJI_MAP.put(":heart:", "❤");
@@ -30,17 +30,22 @@ public class ChatEmojiEvent {
 
     @SubscribeEvent
     public static void onServerChat(ServerChatEvent event) {
-        String originalText = event.getRawText();
-        String updatedText = originalText;
+        String text = event.getRawText();
 
+        if (!text.contains(":")) {
+            return;
+        }
+
+        boolean modified = false;
         for (Map.Entry<String, String> entry : EMOJI_MAP.entrySet()) {
-            if (updatedText.contains(entry.getKey())) {
-                updatedText = updatedText.replace(entry.getKey(), entry.getValue());
+            if (text.contains(entry.getKey())) {
+                text = text.replace(entry.getKey(), entry.getValue());
+                modified = true;
             }
         }
 
-        if (!updatedText.equals(originalText)) {
-            event.setMessage(Component.literal(updatedText));
+        if (modified) {
+            event.setMessage(Component.literal(text));
         }
     }
 }

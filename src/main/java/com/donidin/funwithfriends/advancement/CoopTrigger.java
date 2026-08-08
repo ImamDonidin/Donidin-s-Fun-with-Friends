@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.advancement;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
@@ -18,6 +19,10 @@ public class CoopTrigger extends SimpleCriterionTrigger<CoopTrigger.TriggerInsta
 
     public void trigger(ServerPlayer player) {
         this.trigger(player, instance -> true);
+    }
+
+    public Criterion<TriggerInstance> createCriterion() {
+        return this.createCriterion(TriggerInstance.instance());
     }
 
     public record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance {

@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -42,6 +43,7 @@ public class HatEquipEvent {
 
                         heldItem.shrink(amountToAdd);
                         headItem.grow(amountToAdd);
+                    } else {
                         swapItems(player, hand, heldItem, headItem);
                     }
                 } else {
@@ -73,11 +75,8 @@ public class HatEquipEvent {
         }
     }
 
-    /**
-     * Checks whether this item can be worn as a hat (Glass, Ice, Flowers, Decor, etc.).
-     */
     private static boolean isAllowedHat(ItemStack stack) {
-        if (stack.is(Items.FEATHER)) {
+        if (stack.is(Items.FEATHER) || stack.getItem() instanceof BannerItem) {
             return true;
         }
 

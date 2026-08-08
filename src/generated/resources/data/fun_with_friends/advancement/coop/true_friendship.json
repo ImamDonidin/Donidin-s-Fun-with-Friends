@@ -1,0 +1,27 @@
+{
+  "parent": "fun_with_friends:coop/team_work",
+  "criteria": {
+    "full_party": {
+      "trigger": "fun_with_friends:true_friendship"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.true_friendship.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.true_friendship.title"
+    }
+  },
+  "requirements": [
+    [
+      "full_party"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,26 @@
+{
+  "parent": "fun_with_friends:coop/shiny_quarter",
+  "criteria": {
+    "trade": {
+      "trigger": "fun_with_friends:trade_deal"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.fun_with_friends.trade_deal.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "translate": "advancements.fun_with_friends.trade_deal.title"
+    }
+  },
+  "requirements": [
+    [
+      "trade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

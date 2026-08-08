@@ -3,13 +3,12 @@ package com.donidin.funwithfriends.network;
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.init.ModDataAttachments;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.UUID;
@@ -32,12 +31,21 @@ public record SyncNickColorPayload(UUID playerUuid, String colorId) implements C
 
     public static void handleOnClient(SyncNickColorPayload payload, IPayloadContext context) {
         context.enqueueWork(() -> {
-            if (Minecraft.getInstance().level != null) {
-                Player player = Minecraft.getInstance().level.getPlayerByUUID(payload.playerUuid());
+            if (FMLEnvironment.dist.isClient()) {
+                ClientHandler.handle(payload);
+            }
+        });
+    }
+
+    private static class ClientHandler {
+        private static void handle(SyncNickColorPayload payload) {
+            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
+            if (mc.level != null) {
+                net.minecraft.world.entity.player.Player player = mc.level.getPlayerByUUID(payload.playerUuid());
                 if (player != null) {
                     player.setData(ModDataAttachments.SELECTED_NICK_COLOR.get(), payload.colorId());
                 }
             }
-        });
+        }
     }
 }
