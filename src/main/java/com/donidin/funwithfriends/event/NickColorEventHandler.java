@@ -4,6 +4,7 @@ import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.cosmetics.NickColor;
 import com.donidin.funwithfriends.init.ModDataAttachments;
 import com.donidin.funwithfriends.network.SyncNickColorPayload;
+import com.donidin.funwithfriends.network.TypingPayload;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerPlayer;
@@ -34,10 +35,14 @@ public class NickColorEventHandler {
 
     @SubscribeEvent
     public static void onStartTracking(PlayerEvent.StartTracking event) {
-        if (event.getTarget() instanceof ServerPlayer targetPlayer && event.getEntity() instanceof ServerPlayer player) {
+        if (event.getTarget() instanceof ServerPlayer targetPlayer && event.getEntity() instanceof ServerPlayer tracker) {
             String savedColor = targetPlayer.getData(ModDataAttachments.SELECTED_NICK_COLOR.get());
             if (!savedColor.isEmpty()) {
-                PacketDistributor.sendToPlayer(player, new SyncNickColorPayload(targetPlayer.getUUID(), savedColor));
+                PacketDistributor.sendToPlayer(tracker, new SyncNickColorPayload(targetPlayer.getUUID(), savedColor));
+            }
+
+            if (TypingPayload.isPlayerTypingOnServer(targetPlayer.getUUID())) {
+                PacketDistributor.sendToPlayer(tracker, new TypingPayload.StateUpdate(targetPlayer.getUUID(), true));
             }
         }
     }
