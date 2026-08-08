@@ -33,16 +33,6 @@ public class NickColorEventHandler {
     }
 
     @SubscribeEvent
-    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
-            String savedColor = player.getData(ModDataAttachments.SELECTED_NICK_COLOR.get());
-            if (!savedColor.isEmpty()) {
-                PacketDistributor.sendToAllPlayers(new SyncNickColorPayload(player.getUUID(), savedColor));
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onStartTracking(PlayerEvent.StartTracking event) {
         if (event.getTarget() instanceof ServerPlayer targetPlayer && event.getEntity() instanceof ServerPlayer player) {
             String savedColor = targetPlayer.getData(ModDataAttachments.SELECTED_NICK_COLOR.get());

@@ -38,7 +38,8 @@ public class FunWithFriends {
     }
 
     private void registerPayloads(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar("1");
+        final PayloadRegistrar registrar = event.registrar(FunWithFriends.MOD_ID)
+                .optional();
 
         registrar.playToServer(
                 TypingPayload.TYPE,

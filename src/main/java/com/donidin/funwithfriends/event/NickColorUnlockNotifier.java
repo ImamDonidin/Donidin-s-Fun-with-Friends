@@ -19,7 +19,7 @@ public class NickColorUnlockNotifier {
 
         AdvancementHolder earnedAdvancement = event.getAdvancement();
 
-        for (NickColor color : NickColor.values()) {
+        for (NickColor color : NickColor.VALUES) {
             if (color.getAdvancementId().equals(earnedAdvancement.id())) {
                 notifyUnlock(player, color);
                 break;

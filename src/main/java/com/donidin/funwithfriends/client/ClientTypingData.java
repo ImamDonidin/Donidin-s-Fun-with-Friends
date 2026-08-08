@@ -1,11 +1,11 @@
 package com.donidin.funwithfriends.client;
 
-import java.util.HashSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Set;
 import java.util.UUID;
 
 public class ClientTypingData {
-    private static final Set<UUID> TYPING_PLAYERS = new HashSet<>();
+    private static final Set<UUID> TYPING_PLAYERS = ConcurrentHashMap.newKeySet();
 
     public static void setTyping(UUID uuid, boolean isTyping) {
         if (isTyping) {

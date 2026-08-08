@@ -20,11 +20,13 @@ public enum NickColor {
     ENDPLE("endple", 0xFF00FF, ResourceLocation.parse("minecraft:end/enter_end_gateway")),
     SO_GREENISH("so_greenish", 0xBFFF00, ResourceLocation.parse("minecraft:husbandry/plant_seed")),
     GRAY_AS_ANDESITE("gray_as_andesite", 0x808080, ResourceLocation.parse("minecraft:adventure/minecraft_trials_edition")),
-    NINNI_TEAL("ninni_teal", 0x1E5945, ResourceLocation.parse("minecraft:adventure/adventuring_time"));
+    NINNI_TEAL("ninni_teal", 0x1E5945, ResourceLocation.parse("minecraft:adventure/adventuring_time")),
+    BLUE_MAGIC("blue_magic", 0x1DACD6, ResourceLocation.parse("minecraft:story/enchant_item"));
 
     private final String id;
     private final int hexColor;
     private final ResourceLocation advancementId;
+    public static final NickColor[] VALUES = values();
 
     NickColor(String id, int hexColor, ResourceLocation advancementId) {
         this.id = id;
@@ -37,7 +39,7 @@ public enum NickColor {
     public ResourceLocation getAdvancementId() { return advancementId; }
 
     public static NickColor fromId(String id) {
-        for (NickColor color : values()) {
+        for (NickColor color : VALUES) {
             if (color.id.equalsIgnoreCase(id)) return color;
         }
         return null;

@@ -30,7 +30,7 @@ public record TypingPayload(boolean isTyping) implements CustomPacketPayload {
     public static void handleOnServer(TypingPayload payload, IPayloadContext context) {
         context.enqueueWork(() -> {
             if (context.player() instanceof ServerPlayer player) {
-                PacketDistributor.sendToAllPlayers(new StateUpdate(player.getUUID(), payload.isTyping()));
+                PacketDistributor.sendToPlayersTrackingEntity(player, new StateUpdate(player.getUUID(), payload.isTyping()));
             }
         });
     }
