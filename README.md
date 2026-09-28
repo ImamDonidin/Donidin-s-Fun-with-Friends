@@ -1,8 +1,8 @@
-# 🧑‍🤝‍🧑 Donidin's Fun with Friends
+# Donidin's Fun with Friends
 
-**Donidin's Fun with Friends** is a small quality-of-life mod that focuses entirely on multiplayer.
+**Donidin's Fun with Friends** is a small quality-of-life mod focused entirely on multiplayer.
 
-It doesn't add dozens of new blocks, another "ultimate" sword, or a boss with 10,000 HP. Instead, it adds little interactions that make playing with friends feel more alive... or more chaotic, depending on your group.
+It adds a bunch of little things you can do with your friends. Some useful, some silly, and some that you probably won't use very often but will be glad are there when you need them.
 
 ## Features
 
@@ -13,25 +13,17 @@ It doesn't add dozens of new blocks, another "ultimate" sword, or a boss with 10
 * Hand items directly to another player. *(Shift + Right-click.)*
 * Share some of your health with a teammate. *(Shift + Right-click.)*
 * Throw a Poisonous Potato at your friend.
-  *(We're not responsible for broken friendships.)*
+  *(We're not responsible for what happens afterwards.)*
 * Unlock colorful nicknames by completing advancements.
 
-Every feature is designed to feel like it could have been part of vanilla Minecraft from the beginning.
-
-## Why?
-
-Minecraft is already fun with friends.
-
-This mod simply adds a few extra interactions that make multiplayer feel more social, cooperative, and occasionally a little sillier.
-
-Sometimes the smallest features create the best moments.
+The features are kept simple and use familiar Minecraft interactions wherever possible. (That's what I think. Maybe. I'm not sure.)
 
 ## Compatibility
 
-* Multiplayer ✔
-* Dedicated servers ✔
-* LAN worlds ✔
-* Client and server synchronization ✔
+* Multiplayer - Yeah
+* Dedicated servers - Yeah
+* LAN worlds - Yeah
+* Client and server synchronization - Yeah
 
 ## License & Usage
 
@@ -39,20 +31,22 @@ This project is released under an **All Rights Reserved (ARR)** license.
 
 | Action                                     | Allowed? | Notes                                                                                   |
 | :----------------------------------------- | :------: | :-------------------------------------------------------------------------------------- |
-| **Use in modpacks**                        |     ✅    | Public and private modpacks are welcome. A link to the original project is appreciated. |
-| **Videos & Streams**                       |     ✅    | Feel free to showcase, review, or include the mod in your content.                      |
-| **Addons**                                 |     ✅    | Addons are welcome.                                                                     |
-| **Backports**                              |     ✅    | Backports for other Minecraft versions are allowed.                                     |
-| **Publish addons or backports**            |     ✅    | You can upload them anywhere. Just include a link back to the original project.         |
-| **Modify or redistribute the source code** |     ❌    | The source code may not be modified or redistributed.                                   |
-| **Re-upload official releases**            |     ❌    | Please link to the original download page instead of re-uploading the official files.   |
+| **Use in modpacks**                        |     Yeah    | Public and private modpacks are welcome. A link to the original project is appreciated. |
+| **Videos & Streams**                       |     Yeah    | Feel free to showcase, review, or include the mod in your content.                      |
+| **Addons**                                 |     Yeah    | Addons are welcome.                                                                     |
+| **Backports**                              |     Yeah    | Backports for other Minecraft versions are allowed.                                     |
+| **Publish addons or backports**            |     Yeah    | You can upload them anywhere. Just include a link back to the original project.         |
+| **Modify or redistribute the source code** |     Nope    | The source code may not be modified or redistributed.                                   |
+| **Re-upload official releases**            |     Nope    | Please link to the original download page instead of re-uploading the official files.   |
 
 ## FAQ
 
 ### Can I use this mod in videos or streams?
 
-Definitely. Showcase it, review it, include it in a let's play, or throw Poisonous Potatoes at your friends for content. Have fun.
+Yes. Showcase it, review it, use it in a let's play, or throw Poisonous Potatoes at your friends. Whatever works for your content.
 
 ### Will more features be added?
 
-Probably. The idea behind this mod has always been to add small multiplayer interactions that feel natural rather than overload the game with content.
+Probably. There are still plenty of little multiplayer things that could fit here, so more features may show up eventually.
+
+As long as they don't turn this into a bazillion-feature mod i guess.
