@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.network.TypingPayload;
 import com.donidin.funwithfriends.util.TypingData;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,6 +15,10 @@ public class TypingEventHandler {
 
     @SubscribeEvent
     public static void onStartTracking(PlayerEvent.StartTracking event) {
+        if (!ModConfig.INSTANCE.enableTypingIndicator) {
+            return;
+        }
+
         if (event.getTarget() instanceof ServerPlayer targetPlayer && event.getEntity() instanceof ServerPlayer tracker) {
             if (TypingData.isTyping(targetPlayer.getUUID())) {
                 PacketDistributor.sendToPlayer(tracker, new TypingPayload.StateUpdate(targetPlayer.getUUID(), true));

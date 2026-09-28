@@ -1,7 +1,7 @@
 package com.donidin.funwithfriends.client;
 
 import com.donidin.funwithfriends.FunWithFriends;
-import com.donidin.funwithfriends.entity.ModEntities;
+import com.donidin.funwithfriends.init.ModEntities;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

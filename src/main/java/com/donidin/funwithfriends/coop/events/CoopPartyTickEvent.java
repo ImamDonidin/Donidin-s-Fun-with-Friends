@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.coop.events;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.coop.CoopPartyManager;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -28,6 +29,8 @@ public class CoopPartyTickEvent {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
+        if (!ModConfig.INSTANCE.enableSharedMountBoost) return;
+
         if (!(event.getEntity() instanceof ServerPlayer player) || player.level().isClientSide()) {
             return;
         }

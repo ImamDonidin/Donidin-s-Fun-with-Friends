@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,10 +22,12 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = FunWithFriends.MOD_ID)
 public class TntThrowEvent {
 
-    private static final int THROW_COOLDOWN = 20;
-
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if (!ModConfig.INSTANCE.enableTntThrowing) {
+            return;
+        }
+
         Player player = event.getEntity();
         ItemStack stack = event.getItemStack();
 
@@ -56,7 +59,7 @@ public class TntThrowEvent {
                 level.addFreshEntity(tnt);
 
                 player.awardStat(Stats.ITEM_USED.get(Items.TNT));
-                player.getCooldowns().addCooldown(Items.TNT, THROW_COOLDOWN);
+                player.getCooldowns().addCooldown(Items.TNT, ModConfig.INSTANCE.tntThrowCooldown);
 
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);

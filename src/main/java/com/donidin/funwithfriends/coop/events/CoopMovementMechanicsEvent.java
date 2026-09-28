@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.coop.events;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
@@ -20,6 +21,7 @@ public class CoopMovementMechanicsEvent {
 
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        if (!ModConfig.INSTANCE.enablePullMechanic) return;
         if (event.getHand() != InteractionHand.MAIN_HAND || event.getEntity().isShiftKeyDown()) return;
 
         if (event.getLevel().isClientSide()) {
@@ -33,6 +35,9 @@ public class CoopMovementMechanicsEvent {
         if (!(event.getTarget() instanceof ServerPlayer targetPlayer) || !(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
+
+        double pullReach = ModConfig.INSTANCE.pullReachDistance;
+        if (player.distanceToSqr(targetPlayer) > pullReach * pullReach) return;
 
         double yDiff = targetPlayer.getY() - player.getY();
 

@@ -10,6 +10,17 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 base {
@@ -68,6 +79,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 
 dependencies {
+    implementation "maven.modrinth:1eAoo2KR:7TVdVtxF"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -1,8 +1,10 @@
 package com.donidin.funwithfriends;
 
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfigScreen;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.datagen.ModAdvancementProvider;
-import com.donidin.funwithfriends.entity.ModEntities;
+import com.donidin.funwithfriends.init.ModEntities;
 import com.donidin.funwithfriends.init.ModDataAttachments;
 import com.donidin.funwithfriends.network.SyncNickColorPayload;
 import com.donidin.funwithfriends.network.TypingPayload;
@@ -10,7 +12,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -23,6 +27,13 @@ public class FunWithFriends {
     public static final String MOD_ID = "fun_with_friends";
 
     public FunWithFriends(IEventBus modEventBus) {
+        ModConfig.load();
+
+        ModLoadingContext.get().registerExtensionPoint(
+                IConfigScreenFactory.class,
+                () -> (container, parent) -> ModConfigScreen.createConfigScreen(parent)
+        );
+
         modEventBus.addListener(this::registerPayloads);
         modEventBus.addListener(this::onGatherData);
 
@@ -32,8 +43,7 @@ public class FunWithFriends {
     }
 
     private void registerPayloads(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar("1")
-                .optional();
+        final PayloadRegistrar registrar = event.registrar("1").optional();
 
         registrar.playToServer(
                 TypingPayload.TYPE,

@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.coop.events;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -20,6 +21,7 @@ public class CoopItemTransferEvent {
 
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        if (!ModConfig.INSTANCE.enableItemHanding) return;
         if (event.getHand() != InteractionHand.MAIN_HAND) return;
 
         if (event.getLevel().isClientSide()) {
@@ -35,6 +37,9 @@ public class CoopItemTransferEvent {
         if (!(event.getTarget() instanceof ServerPlayer targetPlayer) || !(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
+
+        double reach = ModConfig.INSTANCE.itemHandingReachDistance;
+        if (player.distanceToSqr(targetPlayer) > reach * reach) return;
 
         if (player.isShiftKeyDown()) {
             ItemStack heldItem = player.getItemInHand(InteractionHand.MAIN_HAND);

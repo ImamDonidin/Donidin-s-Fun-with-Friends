@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.coop;
 
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
@@ -10,7 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class CoopPartyManager {
 
-    public static final int MAX_PARTY_SIZE = 4;
+    public static int getMaxPartySize() {
+        return ModConfig.INSTANCE.maxPartySize;
+    }
 
     public static class CoopParty {
         private final UUID partyId;
@@ -28,7 +31,7 @@ public class CoopPartyManager {
         public Set<UUID> getMembers() { return Collections.unmodifiableSet(members); }
 
         public boolean isFull() {
-            return members.size() >= MAX_PARTY_SIZE;
+            return members.size() >= getMaxPartySize();
         }
 
         public boolean addMember(UUID playerId) {
@@ -53,6 +56,8 @@ public class CoopPartyManager {
     private static final Map<UUID, CoopParty> PLAYER_PARTY_MAP = new ConcurrentHashMap<>();
 
     public static boolean addPlayerToParty(ServerPlayer inviter, ServerPlayer target) {
+        if (!ModConfig.INSTANCE.enablePartySystem) return false;
+
         CoopParty inviterParty = PLAYER_PARTY_MAP.get(inviter.getUUID());
         CoopParty targetParty = PLAYER_PARTY_MAP.get(target.getUUID());
 
@@ -89,7 +94,7 @@ public class CoopPartyManager {
 
         ModTriggers.FRIEND_JOINED.get().trigger(target);
 
-        if (inviterParty.getMembers().size() >= MAX_PARTY_SIZE) {
+        if (inviterParty.getMembers().size() >= getMaxPartySize()) {
             var server = ServerLifecycleHooks.getCurrentServer();
             if (server != null) {
                 for (UUID memberId : inviterParty.getMembers()) {
@@ -129,6 +134,7 @@ public class CoopPartyManager {
     }
 
     public static boolean inSameParty(UUID p1, UUID p2) {
+        if (!ModConfig.INSTANCE.enablePartySystem) return false;
         CoopParty party1 = PLAYER_PARTY_MAP.get(p1);
         CoopParty party2 = PLAYER_PARTY_MAP.get(p2);
         return party1 != null && party1 == party2;

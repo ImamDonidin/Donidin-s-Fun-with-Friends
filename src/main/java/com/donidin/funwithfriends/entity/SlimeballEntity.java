@@ -1,5 +1,6 @@
 package com.donidin.funwithfriends.entity;
 
+import com.donidin.funwithfriends.init.ModEntities;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;

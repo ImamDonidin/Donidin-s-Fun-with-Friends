@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,6 +24,10 @@ public class BossScalingHandler {
 
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
+        if (!ModConfig.INSTANCE.enableBossScaling) {
+            return;
+        }
+
         if (event.getLevel().isClientSide() || !(event.getEntity() instanceof LivingEntity entity)) {
             return;
         }
@@ -40,7 +45,10 @@ public class BossScalingHandler {
         int playerCount = nearbyPlayers.size();
 
         if (playerCount > 1) {
-            double multiplier = Math.min(3.0, 1.0 + (playerCount - 1) * 0.5);
+            double multiplier = Math.min(
+                    ModConfig.INSTANCE.bossHealthMaxMultiplier,
+                    1.0 + (playerCount - 1) * ModConfig.INSTANCE.bossHealthScaleMultiplier
+            );
 
             AttributeInstance maxHealthAttr = entity.getAttribute(Attributes.MAX_HEALTH);
             if (maxHealthAttr != null) {

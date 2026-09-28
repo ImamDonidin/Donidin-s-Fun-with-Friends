@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -21,6 +22,10 @@ public class HatEquipEvent {
 
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if (!ModConfig.INSTANCE.enableHatEquip) {
+            return;
+        }
+
         Player player = event.getEntity();
         InteractionHand hand = event.getHand();
         ItemStack heldItem = player.getItemInHand(hand);
@@ -32,7 +37,7 @@ public class HatEquipEvent {
                 boolean isCandle = heldItem.getItem() instanceof BlockItem blockItem
                         && blockItem.getBlock() instanceof CandleBlock;
 
-                if (isCandle) {
+                if (isCandle && ModConfig.INSTANCE.allowCandleStacking) {
                     if (headItem.isEmpty()) {
                         int countToEquip = Math.min(heldItem.getCount(), 4);
                         ItemStack candleHat = heldItem.split(countToEquip);
@@ -76,8 +81,16 @@ public class HatEquipEvent {
     }
 
     private static boolean isAllowedHat(ItemStack stack) {
-        if (stack.is(Items.FEATHER) || stack.getItem() instanceof BannerItem) {
-            return true;
+        if (stack.is(Items.FEATHER)) {
+            return ModConfig.INSTANCE.allowFeathersOnHead;
+        }
+
+        if (stack.getItem() instanceof BannerItem) {
+            return ModConfig.INSTANCE.allowBannersOnHead;
+        }
+
+        if (!ModConfig.INSTANCE.allowBlocksOnHead) {
+            return false;
         }
 
         if (!(stack.getItem() instanceof BlockItem blockItem)) {

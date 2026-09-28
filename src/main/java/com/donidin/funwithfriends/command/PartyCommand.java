@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.command;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.coop.CoopPartyManager;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
@@ -38,7 +39,17 @@ public class PartyCommand {
         );
     }
 
+    private static boolean isPartySystemDisabled(CommandSourceStack source) {
+        if (!ModConfig.INSTANCE.enablePartySystem) {
+            source.sendFailure(Component.translatable("command.fun_with_friends.party.disabled"));
+            return true;
+        }
+        return false;
+    }
+
     private static int invitePlayer(CommandSourceStack source, ServerPlayer target) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        if (isPartySystemDisabled(source)) return 0;
+
         ServerPlayer player = source.getPlayerOrException();
         if (player.equals(target)) {
             source.sendFailure(Component.translatable("command.fun_with_friends.party.cannot_invite_self"));
@@ -50,6 +61,8 @@ public class PartyCommand {
     }
 
     private static int leaveParty(CommandSourceStack source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        if (isPartySystemDisabled(source)) return 0;
+
         ServerPlayer player = source.getPlayerOrException();
         CoopPartyManager.CoopParty party = CoopPartyManager.getParty(player.getUUID());
 
@@ -63,6 +76,8 @@ public class PartyCommand {
     }
 
     private static int kickPlayer(CommandSourceStack source, ServerPlayer target) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        if (isPartySystemDisabled(source)) return 0;
+
         ServerPlayer player = source.getPlayerOrException();
         CoopPartyManager.CoopParty party = CoopPartyManager.getParty(player.getUUID());
 
@@ -93,6 +108,8 @@ public class PartyCommand {
     }
 
     private static int listParty(CommandSourceStack source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        if (isPartySystemDisabled(source)) return 0;
+
         ServerPlayer player = source.getPlayerOrException();
         CoopPartyManager.CoopParty party = CoopPartyManager.getParty(player.getUUID());
 
@@ -101,7 +118,7 @@ public class PartyCommand {
             return 0;
         }
 
-        source.sendSuccess(() -> Component.translatable("command.fun_with_friends.party.list_header", party.getMembers().size(), CoopPartyManager.MAX_PARTY_SIZE), false);
+        source.sendSuccess(() -> Component.translatable("command.fun_with_friends.party.list_header", party.getMembers().size(), CoopPartyManager.getMaxPartySize()), false);
 
         var server = source.getServer();
         for (UUID memberId : party.getMembers()) {

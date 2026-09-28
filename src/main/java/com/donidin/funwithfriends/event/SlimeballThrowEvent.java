@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -18,10 +19,12 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = FunWithFriends.MOD_ID)
 public class SlimeballThrowEvent {
 
-    private static final int COOLDOWN = 10;
-
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if (!ModConfig.INSTANCE.enableSlimeballThrowing) {
+            return;
+        }
+
         Player player = event.getEntity();
         ItemStack stack = event.getItemStack();
 
@@ -44,7 +47,8 @@ public class SlimeballThrowEvent {
                 level.addFreshEntity(slimeball);
 
                 player.awardStat(Stats.ITEM_USED.get(Items.SLIME_BALL));
-                player.getCooldowns().addCooldown(Items.SLIME_BALL, COOLDOWN);
+
+                player.getCooldowns().addCooldown(Items.SLIME_BALL, ModConfig.INSTANCE.slimeballCooldown);
 
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);

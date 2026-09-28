@@ -1,6 +1,7 @@
 package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.network.chat.Component;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -30,6 +31,10 @@ public class ChatEmojiEvent {
 
     @SubscribeEvent
     public static void onServerChat(ServerChatEvent event) {
+        if (!ModConfig.INSTANCE.enableChatEmojis) {
+            return;
+        }
+
         String text = event.getRawText();
 
         if (!text.contains(":")) {

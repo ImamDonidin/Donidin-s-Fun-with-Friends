@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.event;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.entity.PoisonPotatoEntity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -20,10 +21,12 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = FunWithFriends.MOD_ID)
 public class PoisonPotatoThrowEvent {
 
-    private static final int THROW_COOLDOWN = 15;
-
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+        if (!ModConfig.INSTANCE.enablePotatoThrowing) {
+            return;
+        }
+
         Player player = event.getEntity();
         ItemStack stack = event.getItemStack();
 
@@ -52,7 +55,8 @@ public class PoisonPotatoThrowEvent {
                 level.addFreshEntity(potato);
 
                 player.awardStat(Stats.ITEM_USED.get(Items.POISONOUS_POTATO));
-                player.getCooldowns().addCooldown(Items.POISONOUS_POTATO, THROW_COOLDOWN);
+
+                player.getCooldowns().addCooldown(Items.POISONOUS_POTATO, ModConfig.INSTANCE.potatoCooldown);
 
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);

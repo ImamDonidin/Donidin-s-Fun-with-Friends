@@ -2,6 +2,7 @@ package com.donidin.funwithfriends.coop.events;
 
 import com.donidin.funwithfriends.FunWithFriends;
 import com.donidin.funwithfriends.advancement.ModTriggers;
+import com.donidin.funwithfriends.config.ModConfig;
 import com.donidin.funwithfriends.coop.CoopPartyManager;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -39,23 +40,55 @@ public class CoopPartyInteractionEvent {
         if (player.isShiftKeyDown() && player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
 
             if (CoopPartyManager.inSameParty(player.getUUID(), targetPlayer.getUUID())) {
-                if (!player.hasEffect(MobEffects.REGENERATION)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0, false, true));
-                    targetPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0, false, true));
 
-                    if (player.level() instanceof ServerLevel serverLevel) {
-                        serverLevel.playSound(null, player.blockPosition(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 0.7F, 1.4F);
-                        serverLevel.sendParticles(ParticleTypes.CRIT, targetPlayer.getX(), targetPlayer.getY() + 1.2, targetPlayer.getZ(), 8, 0.2, 0.2, 0.2, 0.1);
+                if (ModConfig.INSTANCE.enableHealthSharing) {
+
+                    if (!player.getCooldowns().isOnCooldown(player.getMainHandItem().getItem())) {
+                        float shareAmount = ModConfig.INSTANCE.healthShareAmount;
+
+                        if (player.getHealth() > shareAmount && targetPlayer.getHealth() < targetPlayer.getMaxHealth()) {
+
+                            player.setHealth(player.getHealth() - shareAmount);
+                            targetPlayer.heal(shareAmount);
+
+                            int cooldownTicks = ModConfig.INSTANCE.healthShareCooldown * 20;
+                            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, false, true));
+                            targetPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, false, true));
+
+                            if (player.level() instanceof ServerLevel serverLevel) {
+                                serverLevel.playSound(null, player.blockPosition(), SoundEvents.WARDEN_HEARTBEAT, SoundSource.PLAYERS, 0.6F, 1.2F);
+                                serverLevel.playSound(null, targetPlayer.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, 1.8F);
+
+                                serverLevel.sendParticles(ParticleTypes.HEART, targetPlayer.getX(), targetPlayer.getY() + 1.2, targetPlayer.getZ(), 5, 0.2, 0.2, 0.2, 0.1);
+                                serverLevel.sendParticles(ParticleTypes.DAMAGE_INDICATOR, player.getX(), player.getY() + 1.0, player.getZ(), 3, 0.1, 0.1, 0.1, 0.05);
+                            }
+
+                            player.displayClientMessage(Component.translatable("coop.fun_with_friends.health_shared_giver", targetPlayer.getDisplayName(), shareAmount / 2.0F), true);
+                            targetPlayer.displayClientMessage(Component.translatable("coop.fun_with_friends.health_shared_receiver", player.getDisplayName(), shareAmount / 2.0F), true);
+
+                            ModTriggers.HIGH_FIVE.get().trigger(player);
+                            ModTriggers.HIGH_FIVE.get().trigger(targetPlayer);
+                        }
                     }
 
-                    player.displayClientMessage(Component.translatable("coop.fun_with_friends.high_five", targetPlayer.getDisplayName()), true);
-                    targetPlayer.displayClientMessage(Component.translatable("coop.fun_with_friends.high_five", player.getDisplayName()), true);
+                } else if (ModConfig.INSTANCE.enableHighFive) {
+                    if (!player.hasEffect(MobEffects.REGENERATION)) {
+                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0, false, true));
+                        targetPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0, false, true));
 
-                    ModTriggers.HIGH_FIVE.get().trigger(player);
-                    ModTriggers.HIGH_FIVE.get().trigger(targetPlayer);
-                } else {
-                    CoopPartyManager.leaveParty(player);
+                        if (player.level() instanceof ServerLevel serverLevel) {
+                            serverLevel.playSound(null, player.blockPosition(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 0.7F, 1.4F);
+                            serverLevel.sendParticles(ParticleTypes.CRIT, targetPlayer.getX(), targetPlayer.getY() + 1.2, targetPlayer.getZ(), 8, 0.2, 0.2, 0.2, 0.1);
+                        }
+
+                        player.displayClientMessage(Component.translatable("coop.fun_with_friends.high_five", targetPlayer.getDisplayName()), true);
+                        targetPlayer.displayClientMessage(Component.translatable("coop.fun_with_friends.high_five", player.getDisplayName()), true);
+
+                        ModTriggers.HIGH_FIVE.get().trigger(player);
+                        ModTriggers.HIGH_FIVE.get().trigger(targetPlayer);
+                    }
                 }
+
             } else {
                 boolean added = CoopPartyManager.addPlayerToParty(player, targetPlayer);
                 if (added && player.level() instanceof ServerLevel serverLevel) {

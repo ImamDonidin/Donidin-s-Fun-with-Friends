@@ -1,5 +1,6 @@
 package com.donidin.funwithfriends.cosmetics;
 
+import com.donidin.funwithfriends.config.ModConfig;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
@@ -50,6 +51,7 @@ public enum NickColor {
     public ResourceLocation getAdvancementId() { return advancementId; }
 
     public static NickColor fromId(String id) {
+        if (!ModConfig.INSTANCE.enableCustomNickColors) return null;
         for (NickColor color : VALUES) {
             if (color.id.equalsIgnoreCase(id)) return color;
         }
@@ -57,6 +59,7 @@ public enum NickColor {
     }
 
     public static NickColor fromAdvancement(ResourceLocation advancementId) {
+        if (!ModConfig.INSTANCE.enableCustomNickColors) return null;
         return BY_ADVANCEMENT.get(advancementId);
     }
 }

@@ -1,6 +1,8 @@
-package com.donidin.funwithfriends.entity;
+package com.donidin.funwithfriends.init;
 
 import com.donidin.funwithfriends.FunWithFriends;
+import com.donidin.funwithfriends.entity.PoisonPotatoEntity;
+import com.donidin.funwithfriends.entity.SlimeballEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
